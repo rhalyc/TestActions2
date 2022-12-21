@@ -1,0 +1,15 @@
+name: TestingAction
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  build:
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+      
+      - name: exec
+        run: bash main.sh
